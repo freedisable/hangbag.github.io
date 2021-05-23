@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <script src="../assets/bootstrap/js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="../assets/fonts/fontawesome/css/all.min.css">
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../assets/bootstrap/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../assets/bootstrap/css/owl.theme.default.min.css">
+    <script src="../assets/bootstrap/js/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+
+</head>
+
+<body>
+    <div id="app">
+        <div class="header__colapse">
+            <nav class="navbar">
+                <ul class="navbar-nav">
+                    <li class="user-name nav-item text-center nav-user"><a href="./login.html">Tên tài khoản</a></li>
+                    <li class="nav-item header__colapse-item"><a href="../index.html" class="nav-link mx-2">Trang Chủ</a></li>
+                    <li class="nav-item header__colapse-item"><a href="./products.html" class="nav-link mx-2">Sản
+                            Phẩm</a></li>
+                    <li class="nav-item header__colapse-item"><a href="./cart.html" class="nav-link mx-2">Giỏ
+                            Hàng</a>
+                    </li>
+                    <li class=" nav-item header__colapse-item header__colapse-logout"><a href="./login.html"
+                            class="logout nav-link mx-2">Đăng nhập</a></li>
+                </ul>
+            </nav>
+        </div>
+        <header class="header">
+            <div class="heading container">
+                <div class="heading d-flex justify-content-center">
+                    <div class="heading__left">
+                        <a href="/" class="heading__logo">HangBag</a>
+                        <div class="nav">
+                            <nav class="navbar navbar-expand">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item"><a href="../index.html" class="nav-link mx-2">Trang Chủ</a></li>
+                                    <li class="nav-item"><a id="btnProduct" href="./products.html" class="nav-link mx-2">Sản Phẩm</a></li>
+                                    <li class="nav-item"><a href="./about.html" class="nav-link mx-2">Về HangBag</a></li>
+                                    <li class="nav-item"><a href="./contact.html" class="nav-link mx-2">Liên Hệ</a></li>
+                                    <li class="nav-item"><a href="./sitemap.html" class="nav-link mx-2">SiteMap</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="heading__right">
+                        <div class="heading__search">
+                            <input type="text" name="search" id="search" placeholder="Bạn muốn tìm gì?">
+                            <a href="" class="btn-search search__btn">
+                                <i class="fas fa-search"></i>
+                            </a>
+                        </div>
+                        <div class="heading__user">
+                            <div class="user mx-3 no-account ">
+                                <!-- user-has-account  no-account-->
+                                <a href="./login.html" class="user-link">
+                                    <i class="fas fa-user user-icon"></i>
+                                    <span class="user-name">Đăng Nhập</span>
+                                </a>
+                                <div class="has-user">
+                                    <div class="user-wrap-info"><a class="user-info" href="./login.html">Thông tin cá nhân</a></div>
+                                    <div class="user-wrap-info"><a class="user-info" href="./cart.html">Xem đơn hàng</a></div>
+                                    <div class="user-wrap-info"><a class="user-info logout" href="">Đăng xuất</a></div>
+                                </div>
+                            </div>
+                            <div class="cart mx-3">
+                                <!-- cart_has-item -->
+                                <a href="./cart.html" class="cart-link">
+                                    <i class="fas fa-cart-plus cart-icon"></i>
+                                    <span class="user-cart">Giỏ Hàng</span>
+                                </a>
+                                <span class="totalProduct "></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="header__btn-colapse">
+                <label for="toggle-nav" id="nav-btn-colapse" class="header__toggle-nav"></label>
+            </div>
+
+
+        </header>
+        <div class="main">
+            <!-- login -->
+            <div class="background__login login ">
+                <form name="frmdangnhap" id="frmdangnhap" method="post" action="#">
+                    <div class="container my-4">
+                        <div class="row justify-content-center">
+                            <div class="col-md-7">
+                                <div class="card-group">
+                                    <div class="card card-login p-4">
+                                        <div class="card-body">
+                                            <h1>Đăng nhập</h1>
+                                            <p class="text-muted">Nhập thông tin Tài khoản</p>
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text h-100 d-block">
+                                                        <i class="fa fa-user"></i>
+                                                    </span>
+                                                </div>
+                                                <input class="form-control" type="text" name="username"
+                                                    placeholder="Tên đăng nhập">
+                                            </div>
+                                            <div class="input-group mb-4">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text h-100 d-block">
+                                                        <i class="fa fa-lock"></i>
+                                                    </span>
+                                                </div>
+                                                <input class="form-control" type="password" name="password"
+                                                    placeholder="Mật khẩu">
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <button id="login" class="btn btn-primary px-4" name="btnLogin">Đăng
+                                                        nhập</button>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <button class="btn btn-link px-0" name="btnFgPass" type="button">Quên mật khẩu?</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card card-login text-white bg-primary py-5 d-md-down-none">
+                                        <div class="card-body text-center">
+                                            <div>
+                                                <h2>Đăng ký</h2>
+                                                <p>Đăng ký để làm thành viên của Trang web bán hàng. Bạn sẽ được một số
+                                                    quyền
+                                                    lợi nhất
+                                                    định khi làm thành viên của Chúng tôi.</p>
+                                                <a name="hieu" class="btn btn-primary active mt-3" href="register.html">Đăng ký
+                                                    ngay!</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- thong tin khach hang -->
+                <form action="#" name="infor" id="infor">
+                    <div class="infor w-100 justify-content-center ">
+                        <div class="col-md-6">
+                            <h1 class="mb-3 text-center">Thông tin khách hàng</h1>
+            
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="kh_ten">Họ tên</label>
+                                    <input type="text" class="form-control" name="kh_ten" id="kh_ten"
+                                        value="" readonly="">
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="kh_gioitinh">Giới tính</label>
+                                    <input type="text" class="form-control" name="kh_gioitinh" id="kh_gioitinh"
+                                        value="" readonly="">
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="kh_diachi">Địa chỉ</label>
+                                    <input type="text" class="form-control" name="kh_diachi" id="kh_diachi"
+                                        value="" readonly="">
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="kh_dienthoai">Điện thoại</label>
+                                    <input type="text" class="form-control" name="kh_dienthoai" id="kh_dienthoai"
+                                        value="" readonly="">
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="kh_email">Email</label>
+                                    <input type="text" class="form-control" name="kh_email" id="kh_email"
+                                        value="" readonly="">
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="kh_ngaysinh">Ngày sinh</label>
+                                    <input type="text" class="form-control" name="kh_ngaysinh" id="kh_ngaysinh"
+                                        value="" readonly="">
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="kh_cmnd">CMND</label>
+                                    <input type="text" class="form-control" name="kh_cmnd" id="kh_cmnd"
+                                        value="" readonly="">
+                                </div>
+                            </div>
+            
+                            <button class="btn mt-3 btn-primary btn-lg btn-block" type="submit" name="btnDatHang">Sửa</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- info -->
+            
+        </div>
+        <footer class="footer ">
+            <div class="container">
+                <div class="footer__top d-flex flex-wrap justify-content-evenly">
+                    <div class="footer__left text-center">
+                        <a class="text-decoration-none py-2 d-block" href="/">Trang Chủ</a>
+                        <a class="text-decoration-none py-2 d-block" href="#">Tất cả sản phẩm</a>
+                        <a class="text-decoration-none py-2 d-block" href="#">Về HangBag</a>
+                        <a class="text-decoration-none py-2 d-block" href="#">Contact</a>
+                    </div>
+                    <div class="footer__right text-center">
+                        <a class="text-decoration-none py-2 d-block" href="#">Giao Hàng và Hoàn trả</a>
+                        <a class="text-decoration-none py-2 d-block" href="#">Chính sách cửa hàng</a>
+                        <a class="text-decoration-none py-2 d-block" href="#">Phương thức thanh toán</a>
+                        <a class="text-decoration-none py-2 d-block" href="#">FAQ</a>
+                    </div>
+                </div>
+                <div class="footer__follow text-center">
+                    <h2 class="py-2">Nhận thông báo ưu đãi qua email</h2>
+                    <div class="footer__subscribe d-flex align-content-center justify-content-center">
+                        <input type="email" name="" placeholder="Nhập email vào đây*" id="" class="footer__input">
+                        <button class="mx-4 btn btn-outline-danger footer__btn">Đăng Ký Ngay</button>
+                    </div>
+                    <p class="copyright">© 2023 by hangbag. Proudly created with Hieu</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../assets/js/app.js"></script>
+    <script>
+        // var user = document.getElementById("login");
+    var btnLogin = document.getElementsByName("btnLogin");
+    btnLogin[0].addEventListener("click", function(event){
+        event.preventDefault();
+        var usernames= document.getElementsByName("username");
+        var passwords= document.getElementsByName("password");
+        var username = usernames[0].value;
+        var password =  passwords[0].value;
+        check = false;
+        for(var user of users){
+            if(user.username == username && user.password == password){
+                check = true;
+                localStorage.setItem("userLogin",JSON.stringify(user));
+                break;
+            }
+        }
+        if(!check){
+            alert('sai tên đăng nhập hoặc mật khẩu');
+        }else{
+            setTimeout(function(){
+                Redirect("../index.html")
+            },1000);
+            
+        }
+    
+    })
+    
+    if(userNow){
+        document.querySelector(".login").classList.add("login-has-account");
+        getThongTin(userNow);
+    }else{
+        document.querySelector(".login").classList.remove("login-has-account");
+    }
+    </script>
+</body>
+
+</html>

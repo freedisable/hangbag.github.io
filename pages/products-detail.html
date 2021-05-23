@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <script src="../assets/bootstrap/js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="../assets/fonts/fontawesome/css/all.min.css">
+    <script src="../assets/js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/bootstrap/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../assets/bootstrap/css/owl.theme.default.min.css">
+    <script src="../assets/bootstrap/js/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <style>
+        #btnClose {
+            position: absolute;
+            top: 7px;
+            width: 50px;
+            background-color: #ccc;
+            right: -70px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal button[type="button"] {
+            font-size: 16px;
+        }
+
+        #myToast {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 80px;
+        }
+
+        .toast-body {
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="header__colapse">
+            <nav class="navbar">
+                <ul class="navbar-nav">
+                    <li class="user-name nav-item text-center nav-user"><a href="./login.html">Tên tài khoản</a></li>
+                    <li class="nav-item header__colapse-item"><a href="../index.html" class="nav-link mx-2">Trang Chủ</a></li>
+                    <li class="nav-item header__colapse-item"><a href="./products.html" class="nav-link mx-2">Sản
+                            Phẩm</a></li>
+                    <li class="nav-item header__colapse-item"><a href="./cart.html" class="nav-link mx-2">Giỏ
+                            Hàng</a>
+                    </li>
+                    <li class=" nav-item header__colapse-item header__colapse-logout"><a href="./login.html"
+                            class="logout nav-link mx-2">Đăng xuất</a></li>
+                </ul>
+            </nav>
+        </div>
+        <header class="header">
+            <div class="heading container">
+                <div class="heading d-flex justify-content-center">
+                    <div class="heading__left">
+                        <a href="/" class="heading__logo">HangBag</a>
+                        <div class="nav">
+                            <nav class="navbar navbar-expand">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item"><a href="../index.html" class="nav-link mx-2">Trang Chủ</a></li>
+                                    <li class="nav-item"><a id="btnProduct" href="./products.html"
+                                            class="nav-link mx-2">Sản Phẩm</a></li>
+                                    <li class="nav-item"><a href="./about.html" class="nav-link mx-2">Về HangBag</a>
+                                    </li>
+                                    <li class="nav-item"><a href="./contact.html" class="nav-link mx-2">Liên Hệ</a></li>
+                                    <li class="nav-item"><a href="./sitemap.html" class="nav-link mx-2">SiteMap</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="heading__right">
+                        <div class="heading__search">
+                            <input type="text" name="search" id="search" placeholder="Bạn muốn tìm gì?">
+                            <a href="" class="btn-search search__btn">
+                                <i class="fas fa-search"></i>
+                            </a>
+                        </div>
+                        <div class="heading__user">
+                            <div class="user mx-3 no-account ">
+                                <!-- user-has-account  no-account-->
+                                <a href="./login.html" class="user-link">
+                                    <i class="fas fa-user user-icon"></i>
+                                    <span class="user-name">Đăng Nhập</span>
+                                </a>
+                                <div class="has-user">
+                                    <div class="user-wrap-info"><a class="user-info" href="./login.html">Thông tin cá
+                                            nhân</a></div>
+                                    <div class="user-wrap-info"><a class="user-info" href="./cart.html">Xem đơn hàng</a>
+                                    </div>
+                                    <div class="user-wrap-info"><a class="user-info logout" href="">Đăng xuất</a></div>
+                                </div>
+                            </div>
+                            <div class="cart mx-3">
+                                <!-- cart_has-item -->
+                                <a href="./cart.html" class="cart-link">
+                                    <i class="fas fa-cart-plus cart-icon"></i>
+                                    <span class="user-cart">Giỏ Hàng</span>
+                                </a>
+                                <span class="totalProduct "></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="header__btn-colapse">
+                <label for="toggle-nav" id="nav-btn-colapse" class="header__toggle-nav"></label>
+            </div>
+
+
+        </header>
+        <div class="main">
+            <!-- product detail -->
+            <div class="container product__breadcrump">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../index.html">Trang Chủ</a></li>
+                        <li class="breadcrumb-item" aria-current="page"><a id="btnProduct" href="products.html">Sản
+                                phẩm</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Tên sản phẩm</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="product__detail container pb-3">
+                <h1 class="text-center py-3 product__detail-title">Thông tin chi tiết sản phẩm</h1>
+                <div class="row border py-3 justify-content-center">
+                    <div class="col-12 col-md-6 product__detail-left text-center text-md-center">
+
+                    </div>
+                    <div class="col-12 pt-5 col-lg-6 product__detail-right">
+                        <h3 id="name" class="text-black-50">Saddle bag（ZXGD8062）</h3>
+                        <p id="price" class="pt-4">Giá: <span class="text-danger">$45.90</span></p>
+                        <form action="">
+                            <div class="d-flex product__detail-quantity d-flex align-items-center">
+                                <h4 class="pe-3">Quantity: </h4>
+                                <input id="orderQty" style="width: 70px;" type="number" required min="1" value="1"
+                                    name="" id="">
+                            </div>
+                            <div class="py-4" style="height: 65px;">
+                                <div class="d-flex h-100 justify-content-between">
+                                    <input id="btnBuy" type="submit" style="width: 45%; font-size: 1.4rem;"
+                                        value="Mua ngay" class=" d-block btn btn-danger">
+                                    <input id="btnAddToCard" type="submit" style="width: 45%; font-size: 1.4rem;"
+                                        value="Thêm vào giỏ hàng" class=" d-block btn btn-outline-secondary">
+                                </div>
+                            </div>
+                        </form>
+                        <div class="product__detail-product">
+                            <p class="text-danger">Chi tiết sản phẩm</p>
+                            <p id="describe1" style="padding:0 20px; text-align: justify;">Lorem ipsum dolor sit amet
+                                consectetur adipisicing elit. Possimus laudantium cum, laboriosam optio deserunt
+                                distinctio repellat nemo architecto ducimus odit, dolor explicabo sunt eos pariatur
+                                veniam illo error eligendi iusto.</p>
+                            <p id="describe2" style="padding:0 20px; text-align: justify;">Lorem ipsum dolor sit amet
+                                consectetur adipisicing elit. Possimus laudantium cum, laboriosam optio deserunt
+                                distinctio repellat nemo architecto ducimus odit, dolor explicabo sunt eos pariatur
+                                veniam illo error eligendi iusto.</p>
+                            <p id="describe3" style="padding:0 20px; text-align: justify;">Lorem ipsum dolor sit amet
+                                consectetur adipisicing elit. Possimus laudantium cum, laboriosam optio deserunt
+                                distinctio repellat nemo architecto ducimus odit, dolor explicabo sunt eos pariatur
+                                veniam illo error eligendi iusto.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="imageView" tabindex="-1" role="dialog">
+                <div class="modal-dialog d-flex h-75 justify-content-center align-items-center">
+                    <div id="modalViewImg" class="">
+
+                    </div>
+                    <div id="btnClose">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+            <div id="myToast" data-bs-delay="2000" class="toast align-items-center text-dark border-0" role="alert"
+                aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        Đã thêm sản phẩm vào giỏ hàng
+                    </div>
+                    <button type="button" class="btn-close btn-close-dark me-2 m-auto" data-bs-dismiss="toast"
+                        aria-label="Close"></button>
+                </div>
+            </div>
+            <!-- end product -->
+        </div>
+        <footer class="footer ">
+            <div class="container">
+                <div class="footer__top d-flex flex-wrap justify-content-evenly">
+                    <div class="footer__left text-center">
+                        <a class="text-decoration-none py-2 d-block" href="/">Trang Chủ</a>
+                        <a class="text-decoration-none py-2 d-block" href="#">Tất cả sản phẩm</a>
+                        <a class="text-decoration-none py-2 d-block" href="#">Về HangBag</a>
+                        <a class="text-decoration-none py-2 d-block" href="#">Contact</a>
+                    </div>
+                    <div class="footer__right text-center">
+                        <a class="text-decoration-none py-2 d-block" href="#">Giao Hàng và Hoàn trả</a>
+                        <a class="text-decoration-none py-2 d-block" href="#">Chính sách cửa hàng</a>
+                        <a class="text-decoration-none py-2 d-block" href="#">Phương thức thanh toán</a>
+                        <a class="text-decoration-none py-2 d-block" href="#">FAQ</a>
+                    </div>
+                </div>
+                <div class="footer__follow text-center">
+                    <h2 class="py-2">Nhận thông báo ưu đãi qua email</h2>
+                    <div class="footer__subscribe d-flex align-content-center justify-content-center">
+                        <input type="email" name="" placeholder="Nhập email vào đây*" id="" class="footer__input">
+                        <button class="mx-4 btn btn-outline-danger footer__btn">Đăng Ký Ngay</button>
+                    </div>
+                    <p class="copyright">© 2023 by hangbag. Proudly created with Hieu</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../assets/js/app.js"></script>
+    <script>
+        showDetailProduct();
+        var detailImgs = document.getElementsByClassName("product__detail-img");
+        var imgMain = document.querySelector(".product__detail-main");
+        var modalViewImg = document.getElementById("modalViewImg");
+        for (var detailImg of detailImgs) {
+            detailImg.addEventListener("click", function (e) {
+                e.stopPropagation();
+                imgMain.setAttribute("src", this.getAttribute("src"));
+                modalViewImg.innerHTML = `<img src="${this.getAttribute("src")}"  class="w-100"></img>`;
+            })
+        }
+        var addProductToCart = function () {
+            var item = document.getElementsByClassName("product__detail-left")[0];
+            var idProduct = item.id;
+            var orderQty = document.getElementById("orderQty");
+            var quantity = orderQty.value;
+            var product = {
+                id: idProduct,
+                n: Number(quantity)
+            };
+            //    lấy user ra 
+            var user = JSON.parse(localStorage.getItem("userLogin"));
+            // kiểm tra xem sản phẩm đã tồn tài hay chưa
+            // nếu có thì ghi đè số lượng 
+
+            var products = user.productID;
+            var index = products.findIndex(p => p.id == product.id);
+            if (index != -1) {
+                products[index].n = product.n;
+            } else {
+                products.push(product);
+            }
+            localStorage.setItem("userLogin", JSON.stringify(user));
+            var totalProduct = document.querySelector(".totalProduct");
+            var total = user.productID.length;
+            totalProduct.innerText = total;
+        }
+
+        var btnBuy = document.getElementById("btnBuy");
+        var btnAddToCard = document.getElementById("btnAddToCard");
+        btnAddToCard.addEventListener("click", function (e) {
+            e.preventDefault();
+            addProductToCart();
+
+        });
+
+        btnBuy.addEventListener("click", function (e) {
+            e.preventDefault();
+            addProductToCart();
+            window.location = "./cart.html";
+        });
+    </script>
+</body>
+
+</html>
