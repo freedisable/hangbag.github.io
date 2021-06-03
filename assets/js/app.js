@@ -1,29 +1,30 @@
 // scroll header
 
-window.addEventListener("scroll", function () {
-    let header = document.querySelector("header");
-    if (window.scrollY >= 20)
-        header.classList.add('sticky');
-    else if (window.scrollY < 19) {
-        header.classList.remove('sticky');
-        // header.classList.add('fadeBlock');
-    }
-
-});
+function eventScroll() {
+    window.addEventListener("scroll", function() {
+        let header = document.querySelector("header");
+        if (window.scrollY >= 20)
+            header.classList.add('sticky');
+        else if (window.scrollY < 19) {
+            header.classList.remove('sticky');
+            // header.classList.add('fadeBlock');
+        }
+    });
+}
 
 // btn nav
 var colapse = document.querySelector('.header__btn-colapse');
 var btnColapse = document.getElementById("nav-btn-colapse");
 var header = document.querySelector('.header__colapse');
 var menuOpen = false;
-header.addEventListener('click', function(e){   
-    if (document.querySelector('.header__colapse').contains(e.target)){
+header.addEventListener('click', function(e) {
+    if (document.querySelector('.header__colapse').contains(e.target)) {
         btnColapse.classList.remove('open');
         menuOpen = false;
         header.classList.remove('hide');
     }
 });
-colapse.onclick = function () {
+colapse.onclick = function() {
 
     if (!menuOpen) {
         btnColapse.classList.add('open');
@@ -74,8 +75,7 @@ $('.owl-carousel').owlCarousel({
 
 // data products 10 sản phẩm thôi
 
-var dataProducts = [
-    {
+var dataProducts = [{
         id: "item-1",
         name: "(Mẫu HOT) Túi kẹp nách nữ vải dù dây xích KR 323- Chất Dù cao cấp, Size 24, 3 màu lựa chọn- KARA 323",
         url: "../assets/img/items/item-1.jpg",
@@ -141,14 +141,12 @@ var dataProducts = [
         url: "../assets/img/items/item-7.jpg",
         price: 599000,
         describe1: "Túi Cói Merci - nhỏ nhỏ xinh xinh nhưng tiện vô cùng . Sống ảo cũng xinh lung linhh ✨✨🔥🔥 ",
-        describe2:
-            "Để mà đi du lịch sống ảo k thể thiếu em túi này lun ý ce ạ 🤩" +
+        describe2: "Để mà đi du lịch sống ảo k thể thiếu em túi này lun ý ce ạ 🤩" +
             "TÚI CÓI MERCI  hot hit 🌴🌴🌴" +
             "Túi rộng tha hồ đựng đồ nha ce",
         describe3: "Size loại 1: 35x36cm" +
             "size loại 2: 32x35cm,đựng vừa A4, vừa laptop, đi học đi làm , du lịch , còn hợp vs ai bỉm sữa mà vẫn muốn trend :))" +
-            "Túi rất nhẹ gập gọn cất cốp được, sống ảo xịn sò luôn nha 😌😌"
-        ,
+            "Túi rất nhẹ gập gọn cất cốp được, sống ảo xịn sò luôn nha 😌😌",
         orderQty: 3
     },
     {
@@ -163,8 +161,7 @@ var dataProducts = [
             " - Thiết kế mới 2019" +
             "- Họa tiết trái tim, thắt nơ siêu xinh",
         describe2: "Túi nữ 2 Ngăn Phối Nơ  Phiên Bản Hàn Quốc",
-        describe3:
-            "----Thông Tin Chi Tiết----" +
+        describe3: "----Thông Tin Chi Tiết----" +
             "- Chất Liệu: Da pu cao cấp mềm mịn" +
             "- Màu sắc: , hồng" +
             "- Kích thước:19*15*8*15cm" +
@@ -199,15 +196,16 @@ var dataProducts = [
 // data user
 //  danh sách giỏ hàng mặc định
 danhsachGioHang = [{ id: "item-1", n: 3 },
-{ id: "item-2", n: 1 },
-{ id: "item-6", n: 2 }];
+    { id: "item-2", n: 1 },
+    { id: "item-6", n: 2 }
+];
 
 var users = [{
-    username: "admin",
-    password: "admin",
-    productID: danhsachGioHang
-}]
-// data cart
+        username: "admin",
+        password: "admin",
+        productID: danhsachGioHang
+    }]
+    // data cart
 function saveListUser() {
     var list = JSON.parse(localStorage.getItem("listUser"));
     if (list)
@@ -289,15 +287,16 @@ function addRow(product, index) {
     newRow.innerHTML = row;
 }
 // xoa 1 item carrt
-var removeByAttr = function (arr, attr, value) {
+var removeByAttr = function(arr, attr, value) {
     var i = arr.length;
     while (i--) {
-        if (arr[i]
-            && arr[i].hasOwnProperty(attr)
-            && (arguments.length > 2 && arr[i][attr] === value)) {
+        if (arr[i] &&
+            arr[i].hasOwnProperty(attr) &&
+            (arguments.length > 2 && arr[i][attr] === value)) {
             arr.splice(i, 1);
         }
     }
+    totalProduct();
     return arr;
 }
 
@@ -307,11 +306,11 @@ function deleteItemInCart(productID) {
     localStorage.setItem("userLogin", JSON.stringify(userLogin));
 }
 // khi thay đổi số lượng sản phẩm
-function whenChageQty(){
+function whenChageQty() {
     var numbers = document.querySelectorAll("#datarow #number");
     var products = userNow.productID;
-    for(var number in numbers){
-        if(numbers.hasOwnProperty(number)){
+    for (var number in numbers) {
+        if (numbers.hasOwnProperty(number)) {
             products[number].n = numbers[number].value;
             // console.log(numbers[number].value);
         }
@@ -321,7 +320,7 @@ function whenChageQty(){
 }
 
 // tổng giá 
-var totalPrice = function () {
+var totalPrice = function() {
     var table = document.getElementById("datarow");
     var deletes = document.querySelectorAll(".btn-delete-sanpham");
     var totalPr = 0;
@@ -347,7 +346,7 @@ function userCartList(user) {
     if (user) {
         var danhsachGioHang = user.productID;
         for (var item of danhsachGioHang) {
-            var product = dataProducts.find(function (value) {
+            var product = dataProducts.find(function(value) {
                 return value.id == item.id;
             });
             product.orderQty = item.n;
@@ -359,7 +358,7 @@ function userCartList(user) {
 // add product vào cart
 // userCartList(users[0])
 
-var addProduct = function (products) {
+var addProduct = function(products) {
     var prd = products(checkLogin());
     if (prd) {
         for (var product of prd) {
@@ -374,12 +373,12 @@ var addProduct = function (products) {
 // end them sản phẩm
 
 // tat ca san pham
-var pushProduct = function (dataProducts, n) {
+var pushProduct = function(dataProducts, n) {
     var productList = document.getElementById("listProducts");
     var products = [];
     // in ra ngẫu nhiên số sản phẩm theo n
     if (n) {
-        setTimeout(function () {
+        setTimeout(function() {
             for (let i = 0; i < n; ++i) {
                 let k = Math.floor(Math.random() * 10);
                 var item = `
@@ -401,9 +400,7 @@ var pushProduct = function (dataProducts, n) {
                 products.push(dataProducts[k]);
             }
         }, 500);
-    }
-
-    else {
+    } else {
         // in ra tat cả sản phẩm có trong mảng
         for (var product of dataProducts) {
             var item = `
@@ -445,15 +442,15 @@ function filter(a, number) {
 var btnSearch = document.querySelector(".search__btn");
 var inputSearch = document.getElementById("search");
 
-inputSearch.addEventListener("keyup", ({key}) => {
+inputSearch.addEventListener("keyup", ({ key }) => {
     if (key === "Enter") {
         dataSearch();
     }
 })
 
-function dataSearch(){
+function dataSearch() {
     var text = document.getElementById("search").value.toLowerCase();
-    var products = dataProducts.filter(function(product){
+    var products = dataProducts.filter(function(product) {
         return product.name.toLowerCase().includes(text);
     });
     localStorage.setItem("filterActive", 4);
@@ -461,27 +458,27 @@ function dataSearch(){
     window.location = "../pages/products.html";
 }
 
-btnSearch.addEventListener("click", function(e){
+btnSearch.addEventListener("click", function(e) {
     e.preventDefault();
     dataSearch();
 });
 
 var btnPro = document.getElementById("btnProduct");
-btnPro.addEventListener("click", function (event) {
+btnPro.addEventListener("click", function(event) {
     localStorage.setItem("filterActive", "0");
 });
 
 function sortFilter(n) {
     if (n == 3) {
-        dataProducts.sort(function (data1, data2) {
+        dataProducts.sort(function(data1, data2) {
             return data1.price - data2.price;
         });
         pushProduct(dataProducts);
-    }if(n == 4){
+    }
+    if (n == 4) {
         var products = JSON.parse(localStorage.getItem("searchProducts"));
         pushProduct(products);
-    }
-     else {
+    } else {
         pushProduct(dataProducts, 30);
     }
 }
@@ -489,7 +486,7 @@ function sortFilter(n) {
 //  sự kiện khi ấn vào giỏ hàng
 var cart = document.querySelector(".cart-link");
 
-cart.addEventListener("click", function (event) {
+cart.addEventListener("click", function(event) {
     event.preventDefault();
     if (bool) {
         Redirect("../pages/cart.html");
@@ -563,7 +560,7 @@ function checkRegister() {
 
 // get thông tin
 
-var getThongTin = function (user) {
+var getThongTin = function(user) {
     document.getElementById("kh_ten").value = user.kh_ten;
     document.getElementById("kh_gioitinh").value = user.kh_gioitinh == 0 ? "Nam" : "Nữ";
     document.getElementById("kh_diachi").value = user.kh_diachi;
@@ -575,14 +572,14 @@ var getThongTin = function (user) {
 // phần thanh toán paying.html
 
 
-var pay = function () {
+var pay = function() {
 
-    // lấy sản phẩm từ user ra
-    var list = document.getElementById("listProductPay");
-    var product = userCartList(userNow);
-    var total = 0;
-    for (var p of product) {
-        var item = `
+        // lấy sản phẩm từ user ra
+        var list = document.getElementById("listProductPay");
+        var product = userCartList(userNow);
+        var total = 0;
+        for (var p of product) {
+            var item = `
         <li class="list-group-item d-flex justify-content-between ">
             <div>
                 <h4 class="my-0">${p.name}</h4>
@@ -591,23 +588,23 @@ var pay = function () {
             <span class="text-muted">${p.orderQty}</span>
         </li>
         `;
-        list.innerHTML += item;
-        total += p.price * p.orderQty;
-    }
-    var totalPrice = `
+            list.innerHTML += item;
+            total += p.price * p.orderQty;
+        }
+        var totalPrice = `
         <li class="list-group-item d-flex justify-content-between">
             <span>Tổng thành tiền</span>
             <strong id="thanhTien">${total}</strong>
         </li>
     `;
-    list.innerHTML += totalPrice;
-}
-//  sự kiện ấn vào sản phẩm
-var getProductId = function () {
+        list.innerHTML += totalPrice;
+    }
+    //  sự kiện ấn vào sản phẩm
+var getProductId = function() {
     var a = document.getElementsByClassName("sale__item-link");
-    
+
     for (var i = 0; i < a.length; i++) {
-        a[i].addEventListener("click", function (e) {
+        a[i].addEventListener("click", function(e) {
             e.preventDefault();
             var productID = this.id;
             window.location = "./pages/products-detail.html?" + productID;
@@ -615,17 +612,17 @@ var getProductId = function () {
     }
 }
 
-var showDetailProduct = function(){
+var showDetailProduct = function() {
     var linkItem = window.location.href;
     var id = linkItem.split("?")[1];
-    var data = dataProducts.find(function(value, index){
+    var data = dataProducts.find(function(value, index) {
         return value.id == id;
     })
     var imgProduct = document.querySelector(".product__detail-left");
-    
+
     var linkImg = data.url.split(".jpg")[0];
-    var imgLink2 = linkImg +".1.jpg";
-    var imgLink3 = linkImg +".2.jpg";
+    var imgLink2 = linkImg + ".1.jpg";
+    var imgLink3 = linkImg + ".2.jpg";
     var dataImg = `
         <img src="${data.url}" class="product__detail-main w-50" data-bs-toggle="modal" data-bs-target="#imageView"></img>
         <div class="product__details row">
@@ -638,7 +635,7 @@ var showDetailProduct = function(){
     `;
     var modalViewImg = document.getElementById("modalViewImg");
     modalViewImg.innerHTML = `<img src="${data.url}"  class="w-100"></img>`;
-    imgProduct.id = id ;
+    imgProduct.id = id;
     imgProduct.innerHTML = dataImg;
 
     var name = document.getElementById("name");
@@ -653,17 +650,17 @@ var showDetailProduct = function(){
     describe3.innerText = data.describe3;
 }
 
-$(document).ready(function(){
-    $("#btnAddToCard").click(function(){
+$(document).ready(function() {
+    $("#btnAddToCard").click(function() {
         $('.toast').toast('show');
     })
 });
 
 // đếm sản phẩm trên giỏ hàng
-var totalProduct = function(){
+var totalProduct = function() {
     var totalProduct = document.querySelector(".totalProduct");
     var total = userNow.productID.length;
     totalProduct.innerText = total;
 }
-totalProduct();
-
+if (userNow)
+    totalProduct();
